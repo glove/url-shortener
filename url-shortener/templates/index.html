@@ -15,12 +15,9 @@
     <label>
         <input id="url" type="text" placeholder="Enter URL to shorten" class="link">
     </label>
-    <button id="shorten" onclick="shorten()">Shorten URL</button>
-    <script>
-        const shorten = () => {
-            console.log('a');
-        }
-    </script>
+    &nbsp;
+    <button id="shorten" type="button" class="button">Shorten URL</button>
+    <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
 </div>
 </body>
 </html>

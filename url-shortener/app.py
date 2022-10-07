@@ -42,12 +42,14 @@ def create_route():
     if not data['url']:
         return Response(status=400)
 
+    url = data['url']
+
     for i in range(12):
         shortened_url += dictionary[random.randint(0, dictionary_length)]
 
     collection.insert_one({
         'shortened_url': shortened_url,
-        'url': data['url']
+        'url': url
     })
 
     return json.dumps({
