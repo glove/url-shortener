@@ -129,4 +129,6 @@ dmypy.json
 .pyre/
 
 .idea/
+url-shortener/config.json
+
 *.iml
