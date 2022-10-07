@@ -62,7 +62,7 @@ def shortened_url_route(name):
     })
 
     if data is None:
-        return render_template('not_found.html')
+        return '<h2>Error</h2>\n Unable to find any URL with that identifier.'
     return redirect(data['url'])
 
 

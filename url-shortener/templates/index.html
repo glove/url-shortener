@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta property="og:title" content="URL Shortener" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="The most simple URL shortener"/>
+
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+<div class="page-content">
+    <label>
+        <input id="url" type="text" placeholder="Enter URL to shorten" class="link">
+    </label>
+    <button id="shorten" onclick="shorten()">Shorten URL</button>
+    <script>
+        const shorten = () => {
+            console.log('a');
+        }
+    </script>
+</div>
+</body>
+</html>
