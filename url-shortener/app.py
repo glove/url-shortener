@@ -43,14 +43,22 @@ def create_route():
         return Response(status=400)
 
     url = data['url']
+    db_url = collection.find_one({
+        'url': url
+    })
+
+    if db_url is not None:
+        return json.dumps({
+            'shortened_url': db_url['shortened_url']
+        })
 
     for i in range(12):
         shortened_url += dictionary[random.randint(0, dictionary_length)]
 
     collection.insert_one({
-        'shortened_url': shortened_url,
-        'url': url
-    })
+            'shortened_url': shortened_url,
+            'url': url
+        })
 
     return json.dumps({
         'shortened_url': shortened_url
