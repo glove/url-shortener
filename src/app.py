@@ -1,3 +1,9 @@
+import os
+import json
+import random
+import dotenv
+import pymongo
+
 from flask import Flask
 from flask import Response
 
@@ -8,12 +14,9 @@ from flask import render_template
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
-import config
-import random
-import json
-import pymongo
-
 app = Flask(__name__)
+dotenv.load_dotenv()
+
 limiter = Limiter(app, key_func=get_remote_address)
 
 dictionary = [
@@ -24,7 +27,7 @@ dictionary = [
 ]
 dictionary_length = len(dictionary)
 
-mongo_client = pymongo.MongoClient(config.mongo_uri)
+mongo_client = pymongo.MongoClient(os.getenv('MONGO_URI'))
 collection = mongo_client.get_database('url-shortener').get_collection('urls')
 
 
@@ -77,4 +80,4 @@ def shortened_url_route(name):
 
 
 if __name__ == '__main__':
-    app.run(host=config.hostname, port=config.port, debug=False)
+    app.run(host=os.getenv('HOST'), port=os.getenv('PORT'), debug=False)
