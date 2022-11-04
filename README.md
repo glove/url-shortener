@@ -6,22 +6,8 @@ An easy-to-use web-based URL shortener
 
 In order to run the URl shortener, you must first install all requirements from `requirements.txt`.
 
-Windows:
-
-`python install -m pip -r requirements.txt`
-
-Linux:
-
 `python3 install -m pip -r requirements.txt`
 
-Next, configure the server with your MongoDB URI, hostname, and desired port in `url-shortener/config.json`.
+Next, create an environment variables file and set MONGO_URI to your MongoDB URI.
 
-Finally, run the application via executing `cd url-shortener` and one of the following commands, depending on your operating system.
-
-Windows:
-
-`python app.py`
-
-Linux:
-
-`python3 app.py`
+Finally, run the application via executing `python3 src/app.py`.
